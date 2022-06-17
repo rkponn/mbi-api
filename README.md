@@ -1,11 +1,16 @@
-# MBI Validator and Generator
+# MBI Validator and Generator - (Medicare Beneficiary Identifier/Identification)
 
-- This api is fairly simple. An MBI needs to be 11 characters in length and follow a standard
-- Two endpoints, one will generate and one will validate the MBI number
-Users can generate an MBI or validate their own MBI numbers which will return true or false
-
+- This project is an API created with Flask and Python.
+- There will be 2 endpoints, one will generate and one will validate an MBI number.
+- url//generate_mbi/ will generate a valid MBI number following the MBI format since Jan 2020.
+- url//validate_mbi/"mbi-num-to-validate" will validate that the characters follow the format
 
 ~ Setup
-* Create an virtual env
-* Pip install -r requirements.txt
-* python <filename>
+* Clone repo
+* Change Directory into Repo
+* Create a virtual env
+* With virtual env activated, pip install -r requirements.txt
+this will install the dependicies needed for the project.
+* python "filename" 
+
+
