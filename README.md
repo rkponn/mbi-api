@@ -8,8 +8,8 @@
 
 ### General Info
 ***
-This project is an API create with Flask and Python. It will host 2 endpoints that can be called
-which will validate based on the Jan 2020 standard provided by [CMS (Centers for Medicare and Medicaid Services)](https://www.cms.gov/Medicare/New-Medicare-Card). Generating an MBI will give a random but valid string of characters. Validating will ensure that the standards are used, a User can type in their own characters and it will give a True or False based on the validity of the Number.
+This project is an API created with Flask and Python. It will host 2 endpoints that can be called
+which will validate based on the Jan 2020 standard provided by [CMS (Centers for Medicare and Medicaid Services)](https://www.cms.gov/Medicare/New-Medicare-Card). Generating an MBI will give a random but valid string of characters. Validating will ensure that the standards are used, a user can type in their own characters and it will give a True or False based on the validity of the string.
 
 
 
