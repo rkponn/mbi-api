@@ -1,10 +1,8 @@
 """Validator and Genrator of MBIs"""
 import os
-import re
-from distutils.log import debug
-from sre_parse import DIGITS
-from flask import Flask
+import re, json
 from flask_cors import CORS
+from flask import Flask, request, jsonify
 from random import choice
 from string import digits, ascii_uppercase
 
@@ -13,6 +11,8 @@ port = int(os.environ.get("PORT", 5000))
 
 # Allow access from frontend
 CORS(app)
+
+mbi_data = [{"mbi": "7HE3RV6PC91"},]
 
 # Constant Variables
 LETTERS = "".join(set(ascii_uppercase) - {"B", "I", "L", "O", "S", "Z"})
@@ -54,19 +54,22 @@ def validator(mbi):
 
 
 # Api Routes
-@app.route("/generate_mbi/")
+@app.route("/mbi/")
 def generate_mbi():
     """Will Generate an MBI based on MBI_PATTERN"""
     return "".join(choice(char) for char in MBI_PATTERN)
 
 
-@app.route("/validate_mbi/<mbi>")
-def validate_mbi(mbi):
+@app.route("/mbi/", methods=['POST'])
+def validate_mbi():
     """Will MBI and return a string of True or False."""
-    if validator(mbi) == True:
-        return "True"
+    mbi = {"mbi": request.json['mbi']}
+    is_valid = validator(mbi["mbi"])
+    if is_valid == True:
+        mbi_data.append(mbi)
+        return 'True'
     else:
-        return "False"
+        return 'False'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=port, debug=True)
