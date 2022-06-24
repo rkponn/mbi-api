@@ -62,7 +62,7 @@ def generate_mbi():
 
 @app.route("/mbi/", methods=['POST'])
 def validate_mbi():
-    """Will MBI and return a string of True or False."""
+    """Will validate MBI and return a string of True or False."""
     mbi = {"mbi": request.json['mbi']}
     is_valid = validator(mbi["mbi"])
     if is_valid == True:
