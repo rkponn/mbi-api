@@ -1,8 +1,7 @@
 """Validator and Genrator of MBIs"""
-import os
-import re, json
+import os, re
 from flask_cors import CORS
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from random import choice
 from string import digits, ascii_uppercase
 
@@ -52,13 +51,11 @@ def validator(mbi):
     # True or False if pattern matches
     return bool(matched)
 
-
 # Api Routes
 @app.route("/mbi/")
 def generate_mbi():
     """Will Generate an MBI based on MBI_PATTERN"""
     return "".join(choice(char) for char in MBI_PATTERN)
-
 
 @app.route("/mbi/", methods=['POST'])
 def validate_mbi():
@@ -71,5 +68,4 @@ def validate_mbi():
     else:
         return 'False'
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=port, debug=True)
+app.run(host='0.0.0.0', port=port, debug=False)
