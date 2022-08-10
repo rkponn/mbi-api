@@ -69,3 +69,5 @@ def validate_mbi():
         return 'False'
 
 app.run(host='0.0.0.0', port=port, debug=False)
+
+
