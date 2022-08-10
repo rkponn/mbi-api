@@ -62,7 +62,7 @@ def validate_mbi():
     """Will validate MBI and return a string of True or False."""
     mbi = {"mbi": request.json['mbi']}
     is_valid = validator(mbi["mbi"])
-    if is_valid == True:
+    if is_valid:
         mbi_data.append(mbi)
         return 'True'
     else:
